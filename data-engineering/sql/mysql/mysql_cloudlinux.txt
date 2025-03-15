@@ -1,0 +1,36 @@
+Create DB
+
+$ mysql -u queen -p -e "CREATE DATABASE unv01p CHARACTER SET utf8 COLLATE utf8_general_ci";
+
+$ mysql -u queen -p
+
+> CREATE USER queen@localhost IDENTIFIED BY 'R3v3nue';
+
+> GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, INDEX, ALTER, CREATE TEMPORARY TABLES ON unv01p.* TO 'queen'@'localhost' IDENTIFIED BY 'R3v3nue'; 
+
+USER: queen
+DB: universal unv (unv01p)
+
+alexmigit@DEV00D
+kingunv@DEV00D
+
+One4life.
+
+
+mysql -u PINKY -p -e "CREATE DATABASE PRAT06D CHARACTER SET utf8 COLLATE utf8_general_ci";
+
+
+shell> mysql --user=user_name --password db_name
+           Enter password: your_password
+
+
+createpswd - cutie
+
+107.180.50.229
+
+create temporary table SalesSummary (product_name VARCHAR(50) NOT NULL, total_sales DECIMAL(12,2) NOT NULL DEFAULT 0.00, avg_unit_price DECIMAL(7,2) NOT NULL DEFAULT 0.00, total_units_sold INT UNSIGNED NOT NULL DEFAULT 0);
+
+
+INSERT INTO SalesSummary (product_name, total_sales, avg_unit_price, total_units_sold) VALUES ('cucumber', 100.25, 90, 2);
+
+GRANT ALL ON PRAT06D.* TO cutie@198.71.235.5 IDENTIFIED BY 'Cut1eP!';

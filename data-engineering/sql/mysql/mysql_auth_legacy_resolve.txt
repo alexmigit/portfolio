@@ -1,0 +1,21 @@
+
+PS> dotnet ef dbcontext scaffold "server=localhost;userid=root;pwd=rootpw;port=3306;database=Movies;sslmode=none;" Pomelo.EntityFrameworkCore.MySql -o Entities
+
+Authentication method 'caching_sha2_password' is not supported.
+
+The solution is to add persistsecurityinfo=True; to the connection string.
+
+[Resolved]
+
+1st
+
+Way modify the MySql Server Steps Open MySQL Installer - Community Select Product MySQL Server Click on Quick configure in last column
+Click on next untill you will not point to Authentication method On Authentication method tab- select Use Legacy Authentication method Click on next and finish
+
+Now you can login with normal password
+
+2nd
+
+If you are using .net framework 4.5.2 you can easy upgrade reference of MySQL.Data Steps Visulastudio> Tools> Nuget Package Manager>Manage nuget package for solution Go to Browse tab, Write Search textbox mysql and enter first mysql.data package will come, install it
+
+Now login issue will resolved
