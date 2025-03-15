@@ -1,5 +1,7 @@
-# Author: Alex Migit
-# Subject: Expressions and Variables
+'''
+Author: Alex Migit
+Subject: Expressions and Variables
+'''
 
 total_min = 43 + 42
 
