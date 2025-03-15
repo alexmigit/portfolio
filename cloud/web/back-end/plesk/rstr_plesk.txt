@@ -1,0 +1,53 @@
+contemplate life, love and why plesk uninstalled itself
+
+# grep Erased /var/log/yum.log | grep 'psa\|plesk'
+
+# wget http://autoinstall.plesk.com/plesk-installer
+
+# chmod +x plesk-installer
+
+# ./plesk-installer
+
+Switch to the directory with daily dumps:
+
+# cd /var/lib/psa/dumps
+
+Find the most recent dump that contains the 'psa' database:
+
+# zgrep "Current Database:" mysql.daily* | grep psa
+
+where mysql.daily.dump.0.gz is the most recent daily dump. Restore the 'psa' database from the most recent daily dump:
+
+# zcat mysql.daily.dump.0.gz | sed -n '/-- Current Database: `psa`/,/-- Current Database:*/p' | MYSQL_PWD=`cat /etc/psa/.psa.shadow` mysql -uadmin
+
+# ./plesk-installer
+
+...
+
+Components and product check results:
+Installation is finished
+
+                                   Congratulations!
+
+        The installation has been finished. Plesk is now running on your server.
+
+        To complete the configuration process, browse either of URLs:
+          * https://ph-sql-vm1.f2tofzjkfqmuxmn5mcmlhd0jze.xx.internal.cloudapp.net:8443/login?secret=qBkpBWoILrmZayM724-YmnuUwShm2MBLq0U9VZKNCU9TmM5Q
+          * https://52.229.24.117:8443/login?secret=qBkpBWoILrmZayM724-YmnuUwShm2MBLq0U9VZKNCU9TmM5Q
+
+        Use the username 'admin' to log in. To log in as 'admin', use the 'plesk login' command.
+        You can also log in as 'root' using your 'root' password.
+
+        Use the 'plesk' command to manage the server. Run 'plesk help' for more info.
+
+        Use the following commands to start and stop the Plesk web interface:
+        'service psa start' and 'service psa stop' respectively.
+
+        If you would like to migrate your subscriptions from other hosting panel
+        or older Plesk version to this server, please check out our assistance
+        options: https://www.plesk.com/professional-services/
+
+
+
+The changes were applied successfully.
+

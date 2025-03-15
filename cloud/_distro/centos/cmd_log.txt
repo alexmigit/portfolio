@@ -1,0 +1,62 @@
+########################################################################################################
+#
+# Modern Waste - Linux Command Log
+#
+########################################################################################################
+
+# Install scp on CentOS instance ( 
+# Date: Wed Apr  8 18:35:16 UTC 2020
+
+[centos@ip-172-31-5-41 ~]$ sudo yum install -y openssh-clients
+Loaded plugins: fastestmirror
+Loading mirror speeds from cached hostfile
+ * base: d36uatko69830t.cloudfront.net
+ * extras: d36uatko69830t.cloudfront.net
+ * updates: d36uatko69830t.cloudfront.net
+Package openssh-clients-7.4p1-21.el7.x86_64 already installed and latest version
+Nothing to do
+
+
+#### Check NGINX version
+
+[centos@ip-172-31-5-41 ~]$ nginx -v
+nginx version: nginx/1.16.1
+[centos@ip-172-31-5-41 ~]$ whereis nginx
+nginx: /usr/sbin/nginx /etc/nginx /usr/share/nginx /usr/share/man/man1/nginx.1.gz
+[centos@ip-172-31-5-41 ~]$ which nginx
+/usr/sbin/nginx
+[centos@ip-172-31-5-41 ~]$ echo "$PATH"
+/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/home/centos/.local/bin:/home/centos/bin
+[centos@ip-172-31-5-41 ~]$ ps aux | grep nginx
+centos    4263  0.0  0.0 112712   964 pts/0    S+   15:34   0:00 grep --color=auto nginx
+root      6206  0.0  0.1  23732  1148 ?        S    Apr09   0:00 nginx: master process /us
+nginx     6207  0.0  0.2  24684  2896 ?        S    Apr09   0:01 nginx: worker process
+
+# plesk ext wp-toolkit --wp-cli -instance-id 1 -- user list
+
+# plesk bin ipmanage --ip_list
+
+####firewalld, it has to be configured so that it allows connection to Plesk on the port 8443. I added the rule with the following:
+# firewall-cmd --zone=public --permanent --add-port=8443/tcp
+# firewall-cmd --reload
+
+####https://support.plesk.com/hc/en-us/articles/213913565?input_string=plesk+self+signed+certificate
+
+# host www.modernwastesolutions.com
+
+# curl -v https://modernwastesolutions.com
+
+# curl -v https://modernwastesolutions.com:443
+
+# service httpd restart
+Redirecting to /bin/systemctl restart httpd.service
+
+# service nginx restart
+Restarting nginx (via systemctl):                          [  OK  ]
+
+# firewall-cmd --zone=public --permanent --add-port=8447/tcp
+# firewall-cmd --reload
+
+####https://docs.plesk.com/en-US/obsidian/administrator-guide/dns/using-external-dns-servers.72230/
+# plesk bin server_dns --disable-custom-backend
+

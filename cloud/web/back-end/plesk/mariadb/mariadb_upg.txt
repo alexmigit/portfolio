@@ -1,0 +1,137 @@
+# cat /usr/local/psa/version
+
+# plesk version | grep "OS version"
+     OS version: CentOS 7.7.1908 x86_64
+
+# rpm -q centos-release
+
+[root@ph-sql-vm1 etc]# rpm -q centos-release
+centos-release-7-7.1908.0.el7.centos.x86_64
+
+[root@ph-sql-vm1 backup]# mysql -V
+mysql  Ver 15.1 Distrib 5.5.64-MariaDB, for Linux (x86_64) using readline 5.1
+
+[root@ph-sql-vm1 admin]# hostnamectl
+   Static hostname: ph-sql-vm1
+         Icon name: computer-vm
+           Chassis: vm
+        Machine ID: cf31bdf271e046d3896b595639cb0622
+           Boot ID: 44edc71bde8241e4af6beb88ea01d8d3
+    Virtualization: microsoft
+  Operating System: CentOS Linux 7 (Core)
+       CPE OS Name: cpe:/o:centos:centos:7
+            Kernel: Linux 3.10.0-957.1.3.el7.x86_64
+      Architecture: x86-64
+
+[root@ph-sql-vm1 /]# rpm -qa | grep -i mysql
+plesk-php74-mysql-7.4.2-1centos.7.200124.1241.x86_64
+perl-DBD-MySQL-4.023-6.el7.x86_64
+plesk-php70-mysql-7.0.33-centos7.18120712.x86_64
+plesk-php71-mysql-7.1.33-1centos.7.191025.1053.x86_64
+plesk-php56-mysql-5.6.40-centos7.19011112.x86_64
+plesk-mysql-connector-odbc-5.2.7-centos7.17091819.x86_64
+plesk-php73-mysql-7.3.14-1centos.7.200124.1241.x86_64
+plesk-mysql-server-18.0-2.centos.7+p18.0.22.0+t191202.1336.noarch
+plesk-php72-mysql-7.2.27-1centos.7.200124.1241.x86_64
+
+
+# Upgrade to MariaDB 10.2
+
+#############################################
+MariaDB102.repo
+# MariaDB 10.2 CentOS repository list - created 2020-02-16 17:56 UTC
+# http://downloads.mariadb.org/mariadb/repositories/
+[mariadb]
+name = MariaDB
+baseurl = http://yum.mariadb.org/10.2/centos7-amd64
+gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
+gpgcheck=1
+
+#############################################
+
+https://support.plesk.com/hc/en-us/articles/213403429-How-to-upgrade-MySQL-5-5-to-5-6-5-7-or-MariaDB-5-5-to-10-0-10-1-10-2-on-Linux-
+
+https://support.plesk.com/hc/en-us/articles/360003426894-How-to-back-up-all-MySQL-databases-in-Plesk-for-Linux
+
+https://support.plesk.com/hc/en-us/articles/213904125-How-to-back-up-restore-Plesk-system-databases
+
+
+# mkdir /var/opt/mariadb/backup/mysql_dumps_all
+
+# cd /root && /usr/sbin/plesk db -e "show databases" | grep -v -E "^Database|information_schema|performance_schema|phpmyadmin" > dblist.txt
+
+# cat /root/dblist.txt | while read i; do /usr/sbin/plesk db dump "$i" > /var/opt/mariadb/backup/mysql_dumps_all/"$i".sql; done
+
+####Restoring all MySQL databases from the dumps
+To restore all databases from dump files created above, run the command:
+# for i in `cat /root/dblist.txt`; do MYSQL_PWD=`cat /etc/psa/.psa.shadow` mysql -u admin < /root/mysqlbackup/"$i".sql; done
+
+# plesk db dump WP01P > /var/opt/mariadb/backup/dump_wp01p_20200216.sql
+
+--BELOW DOES NOT WORK
+# MYSQL_PWD=cat /etc/psa/.psa.shadow mysqldump -u admin --all-databases --routines --triggers > /var/opt/mariadb/backup/dump_all-databases_20200216.sql
+--DOES NOT WORK
+
+# service mariadb stop
+
+# rpm -e --nodeps mariadb-bench
+
+# cp -v -a /var/lib/mysql/ /var/opt/mariadb/mysql_backup
+
+# rpm -q --whatprovides mysql-server
+If it is installed and the command above gives output, remove using the following command:
+# rpm -e --nodeps `rpm -q --whatprovides mysql-server`
+
+[root@ph-sql-vm1 yum.repos.d]# vim MariaDB103.repo
+[root@ph-sql-vm1 yum.repos.d]# cat MariaDB103.repo
+# MariaDB 10.3 CentOS repository list - created 2020-02-16 18:31 UTC
+# http://downloads.mariadb.org/mariadb/repositories/
+[mariadb]
+name = MariaDB
+baseurl = http://yum.mariadb.org/10.3/centos7-amd64
+gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
+gpgcheck=1
+[root@ph-sql-vm1 yum.repos.d]# cat MariaDB102.repo
+# MariaDB 10.2 CentOS repository list - created 2020-02-16 17:56 UTC
+# http://downloads.mariadb.org/mariadb/repositories/
+[mariadb]
+name = MariaDB
+baseurl = http://yum.mariadb.org/10.2/centos7-amd64
+gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
+gpgcheck=1
+
+# cd /etc/yum.repos.d
+
+# rm MariaDB103.repo
+
+# mv MariaDB102.repo MariaDB.repo
+
+# yum clean all
+
+# yum install MariaDB-client MariaDB-server
+
+# systemctl restart mariadb
+
+# MYSQL_PWD=`cat /etc/psa/.psa.shadow` mysql_upgrade -uadmin
+
+# systemctl restart mariadb
+
+# plesk sbin packagemng -sdf
+
+Note: After an upgrade, there may appear 'mysql' init script. It should be removed to avoid conflicts with MariaDB service. The same commands can be used to fix already existing conflict:
+
+# to stop the incorrect service if it is started
+systemctl stop mysql; killall mysqld 
+
+# to remove the incorrect service script and reload systemctl configuration
+# rm /etc/init.d/mysql && systemctl daemon-reload 
+
+# to start MariaDB if not started
+# systemctl start mariadb 
+
+# to make sure that MariaDB will start after the server reboot automatically
+# systemctl enable mariadb 
+
+# mysql -V
+mysql  Ver 15.1 Distrib 10.2.31-MariaDB, for Linux (x86_64) using readline 5.1
+

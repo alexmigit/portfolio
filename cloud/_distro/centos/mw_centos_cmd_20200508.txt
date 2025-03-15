@@ -1,0 +1,39 @@
+
+# yum install firewalld
+
+[root@ip-172-31-5-41 centos]# systemctl start firewalld
+[root@ip-172-31-5-41 centos]# systemctl enable firewalld
+[root@ip-172-31-5-41 centos]# firewall-cmd --zone=public --permanent --add-port=443/tcp
+success
+
+# mkdir -p /usr/local/psa/admin/conf/templates/custom/domain
+
+# cp /usr/local/psa/admin/conf/templates/default/domain/nginxDomainVirtualHost.php /usr/local/psa/admin/conf/templates/custom/domain/nginxDomainVirtualHost.php
+
+# yum install vim -y
+
+
+
+#REMOVED
+_domainconnect .modernwastesolutions.com. 
+
+TXT
+
+"domainconnect.plesk.com/host/ip-172-31-5-41.us-west-1.compute.internal/port/8443"
+
+
+https://support.plesk.com/hc/en-us/articles/213912945-After-switching-a-WordPress-website-to-FPM-served-by-nginx-in-Plesk-it-fails-to-load-with-404-Not-Found-on-all-pages-except-start-page
+
+Added the following additional nginx directive in Domains > example.com > Apache & nginx Settings:
+
+if (!-e $request_filename) {
+set $test P;
+}
+if ($uri !~ ^/(plesk-stat|webstat|webstat-ssl|ftpstat|anon_ftpstat|awstats-icon|internal-nginx-static-location)) {
+set $test "${test}C";
+}
+if ($test = PC) {
+rewrite ^/(.*)$ /index.php?$1;
+}
+
+
