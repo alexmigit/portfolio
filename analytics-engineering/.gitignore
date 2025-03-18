@@ -1,0 +1,9 @@
+# .dbtignore
+
+# ignore specific directories
+target/
+dbt_packages/
+logs/
+
+# ignore individual .py files
+#not-a-dbt-model.py
