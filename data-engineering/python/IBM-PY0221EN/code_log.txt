@@ -1,0 +1,9 @@
+2024-10-24 14:46:23,906 - INFO - Stage: Data extraction started
+2024-10-24 14:46:24,972 - ERROR - An error occurred: Missing optional dependency 'lxml'.  Use pip or conda to install lxml.
+2024-10-24 14:46:24,972 - INFO - Stage: Execution completed in 1.07 seconds
+2024-10-24 14:47:33,203 - INFO - Stage: Data extraction started
+2024-10-24 14:47:33,570 - ERROR - An error occurred: "None of [Index(['Name', 'Market cap(US$ billion)'], dtype='object')] are in the [columns]"
+2024-10-24 14:47:33,570 - INFO - Stage: Execution completed in 0.37 seconds
+2024-10-25 14:04:30,327 - INFO - Stage: Data extraction started
+2024-10-25 14:04:31,500 - ERROR - An error occurred: "None of [Index(['Name', 'Market cap(US$ billion)'], dtype='object')] are in the [columns]"
+2024-10-25 14:04:31,500 - INFO - Stage: Execution completed in 1.17 seconds
