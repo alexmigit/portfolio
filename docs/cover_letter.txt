@@ -1,0 +1,50 @@
+Alex Paul Migit
+Roseville, CA 95678 | Nashville, TN 37062 | +1 (309) 267-0214
+migita.py@gmail.com | https://github.com/alexmigit
+
+--
+
+Dear Hiring Manager:
+
+As a well-established IT leader with a passion for data, programming, scripting, and 
+application development and innovation, I am an ideal candidate for your role. 
+
+Having progressed through a series of highly technical roles over more than 8 years, I have 
+an extensive understanding and awareness of all areas of the SDLC and am very excited to 
+apply my skills to produce immediate results as a valuable member of your Team. 
+
+Throughout my career, I have made it my priority to utilize current technologies and 
+new techniques to develop elegant, creative technical solutions across all project phases. 
+
+Comfortable in collaborative and independently driven roles, I am a forward-thinking leader with 
+refined analytical and critical thinking skills, and I can adapt and 
+revise my strategies to meet evolving priorities, shifting needs, and emergent issues. 
+
+Furthermore, I would bring the following strengths to your team:
+
+• Led Oracle Application DBA | HPE Data Engineer weekly meetings with GD India Team, including after hour database build task instruction and facilitation.
+
+• Served as Business Operational Excellence leader for DXC Technology ($16.27B) organizational team.
+
+• Executed Full Enterprise Data refreshes and DB Builds, including REG & SIM Physical Data Model (PDM) compares with erwin Data Modeler.
+
+• Performed Oracle DB backup and recovery through server-based data-extraction and data-import utility.
+
+• Wrote ksh script to automate cleanup of Oracle dump files in HP-UX production servers with crontab.
+
+• Upgraded SQL Server 2008 databases to SQL Server 2016, as well as migrated Microsoft Access databases from *.mdb files to SQL Server 2016 database.
+
+• Completed asynchronous programming in C# and .NET Core, including MVC/MVVM Applications Engineering, including both Database First and Model First development using EF Core and EF6.
+
+• Created both LAN and Unix DDL/DML file directories for software release builds, including SFTP of files into respective build libraries and execution directories.
+
+• Monitored application related jobs and data replication activities, including comprehensive Application DBA due diligence. 
+
+I look forward to discussing my background and your needs in detail, as I am confident that 
+my unique experience will be of great use in meeting your immediate and future objectives. 
+
+Please contact me at your earliest convenience to schedule an interview; 
+until then, thank you for your consideration.
+
+With gratitude,
+Alex
