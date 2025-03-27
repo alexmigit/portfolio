@@ -1,0 +1,56 @@
+Alex Paul Migit  
+Roseville, CA 95678 | Nashville, TN 37062  
+migita.py@gmail.com | (309) 267-0214  
+
+## Summary  
+Technically minded and highly adaptable professional with over 8 years of experience in developing, installing, and configuring client-facing applications, including development and management of very large databases (VLDB). Expert in logical/physical data models creation, performance tuning, query optimization, and client/server connectivity. Excellent knowledge of C#, Big Data processing, .NET technologies, and cloud platforms such as AWS, Azure, GCP, and IBM Cloud. Demonstrated leadership skills in SharePoint-based matrix organizations with a proven track record in building and leading effective cross-functional teams.  
+
+## Technical Skills  
+- **ETL & ELT:** dbt-Snowflake, SSIS  
+- **Platforms:** Windows Server, VM, AMI, macOS, RHEL, Ubuntu, CloudLinux, HP-UX, Azure, AWS, GCP  
+- **Software:** Visual Studio, SQL Server, PL/SQL Developer, Postman, Citrix, Tableau, GitHub, pgAdmin 4, Power BI  
+- **Languages:** Transact-SQL, Python, C#, PL/SQL, HTML5, CSS3, JavaScript, PHP5, React, Bash  
+- **Tools & Frameworks:** ASP.NET Core, PowerShell, DML/DDL, Node.js, dbt Core, EF6, Swagger, YAML, JSON  
+- **Soft Skills:** Advanced Cultural Competency, Superior Athletic Intelligence, Extreme Ownership, NLP  
+
+## Professional Experience  
+### Founder & Solutions Engineer  
+**Foundation First LLC** (Jan 2017 – Present) - Remote  
+- Developed responsive Bootstrap websites with SEO best practices.  
+- Deployed High-Availability WordPress sites with AWS EC2, Lambda, and RDS.  
+- Implemented Google Analytics, custom JavaScript tracking pixels, and SEO strategies.  
+
+### Lead Data Engineer  
+**Network Coverage** (Jul 2023 – Nov 2023) - Remote  
+- Designed scalable data pipelines using Python, dbt, and Snowflake.  
+- Developed dbt models for transforming data into Snowflake Data Warehouse.  
+- Ensured data security in Snowflake Data Cloud and provided technical guidance.  
+
+### Data Engineer & .NET Applications Developer  
+**Sutter Health** (Feb 2020 – Aug 2021) - Roseville, CA  
+- Managed database engineering with SQL Server, IBM DB2, and PowerShell.  
+- Performed ASP.NET Core MVC development and contributed to architectural solutions.  
+
+### Data & Software Engineer  
+**City of Fairfield** (2019) - Fairfield, CA  
+- Migrated Microsoft Access databases to SQL Server 2016.  
+- Conducted performance tuning with wait statistics and enhanced database security.  
+
+### Data Engineer & Application DBA  
+**Hewlett Packard Enterprise** (Jan 2015 – Sep 2018) - Roseville, CA  
+- Managed database administration, schema design, and performance tuning.  
+- Automated Oracle dump file cleanup with ksh scripting.  
+
+## Education  
+**Bachelor of Science in Information Systems**  
+University of Phoenix  
+
+## Certifications  
+- AWS Certified Solutions Architect  
+- Microsoft Certified: Azure Data Engineer Associate  
+- dbt Fundamentals Certification  
+
+## Contact  
+Email: migita.py@gmail.com | Phone: (309) 267-0214  
+[GitHub](https://github.com/username) | [LinkedIn](https://linkedin.com/in/alexpaulmigit)
+
