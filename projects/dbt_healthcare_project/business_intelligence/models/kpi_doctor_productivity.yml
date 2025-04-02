@@ -1,0 +1,21 @@
+version: 2
+
+models:
+  - name: kpi_doctor_productivity
+    description: "Doctor visit productivity metrics."
+    columns:
+      - name: doctor_id
+        tests:
+          - not_null
+          - relationships:
+              to: source('ehr', 'doctors')
+              field: doctor_id
+
+      - name: total_visits
+        tests:
+          - not_null
+          - positive_values
+
+      - name: total_revenue
+        tests:
+          - positive_values
