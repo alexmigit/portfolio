@@ -1,0 +1,26 @@
+version: 2
+
+models:
+  - name: fct_patient_financials
+    description: "Aggregated patient financial metrics."
+    columns:
+      - name: patient_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_patients')
+              field: patient_id
+
+      - name: total_billed
+        tests:
+          - not_null
+          - positive_values
+
+      - name: total_paid
+        tests:
+          - positive_values
+
+      - name: outstanding_balance
+        tests:
+          - negative_values:
+              allow_zero: true
