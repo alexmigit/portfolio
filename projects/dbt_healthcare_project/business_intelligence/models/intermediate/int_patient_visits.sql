@@ -1,3 +1,5 @@
+-- Aggregates patient visits for analytics.
+
 WITH visits AS (
     SELECT
         v.patient_id,

@@ -1,3 +1,4 @@
+-- Cleans and standardizes patient data from the EHR system.
 
 WITH source AS (
     SELECT

@@ -1,3 +1,4 @@
+-- Aggregates financial performance per patient.
 
 WITH financials AS (
     SELECT
